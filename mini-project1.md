@@ -3,7 +3,7 @@ Mini Data-Analysis Deliverable-1
 
 # Welcome to your (maybe) first-ever data analysis project!
 
-And hopefully the first of many. Let’s get started;
+And hopefully the first of many. Let’s get started:
 
 1.  Install the [`datateachr`](https://github.com/UBC-MDS/datateachr)
     package by typing the following into your **R terminal**:
