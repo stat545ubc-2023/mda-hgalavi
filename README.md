@@ -15,9 +15,13 @@ To gain valuable insights and visualize the data effectively, I utilized various
 Finally, I have formulated four questions for the next chapter of the project, 'Mini Data Analysis Project: Milestone 2.
 
 ## Contents of the Repository
-
+* **README.md:** which provides a brief description of the repo.
+* **mini-project1.Rmd:** which is the mini-project1 on the Rmarkdown.
+* **mini-project1.md:** which is the markdown output of the mini-project1.
 
 ## Software Required
 In order to reproduce the work done in this project, the following softwares are required:
 1. R
 2. R-Studio
+
+**Note**: In order to run mini-project1.Rmd you would need Rstudio as well as the tidyverse, datateachr, and ggplot2 packages installed.
