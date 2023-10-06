@@ -1,5 +1,5 @@
 ---
-title: "Mini Data-Analysis Deliverable 1"
+title: "Mini Data-Analysis Deliverable-1"
 output: github_document
 ---
 
@@ -102,7 +102,7 @@ And that is exactly the first thing that you will do!
 steam_games
 ```
 
-### 1.2.1. Finding the dimension (number of rows and columns) of each dataset
+1.2.1. Finding the dimension (number of rows and columns) of each dataset.
 
 ```{r}
 dim(cancer_sample)
@@ -112,7 +112,7 @@ dim(flow_sample)
 ```
 
 
-### 1.2.2. Finding the variable  names in each dataset
+1.2.2. Finding the variable names in each dataset.
 ```{r}
 variable.names(cancer_sample)
 variable.names(vancouver_trees)
@@ -120,7 +120,7 @@ variable.names(building_permits)
 variable.names(flow_sample)
 ```
 
-### 1.2.3. Finding the class type of each dataset
+1.2.3. Finding the class type of each dataset.
 ```{r}
 class(cancer_sample)
 class(vancouver_trees)
@@ -128,14 +128,14 @@ class(building_permits)
 class(flow_sample)
 ```
 
-### 1.2.4. Finding the more information of each dataset as the summary.
+1.2.4. Finding the more information of each dataset as the summary.
 ```{r}
 summary(cancer_sample)
 summary(vancouver_trees)
 summary(building_permits)
 summary(flow_sample)
 ```
-### 1.2.5. finally load the dataset to see the whole dataset.
+1.2.5. Finally load the dataset.
 ```{r}
 data("cancer_sample")
 data("vancouver_trees")
@@ -148,14 +148,13 @@ data("flow_sample")
 1.3 **(1 point)** Now that you've explored the 4 datasets that you were initially most interested in, let's narrow it down to 1. What lead you to choose this one? Briefly explain your choice below.
 
 <!-------------------------- Start your work below ---------------------------->
-My choice is **cancer_sample** dataset; This data set contains a sample of quantitative features that were calculated from images of nuclei present in fine needle aspiration biopsies of breast masses from patients at the University of Wisconsin Hospital. . The reason I've chosen this dataset is that I've had a personal experience with the loss of my grandmother to [Breast Cancer](https://cancer.ca/en/ways-to-give/breast-cancer-awareness-month) as well as October is _**National Breast Cancer Awareness Month**_ in Canada, and it's the current month, I am working on this dataset.![](https://www.emro.who.int/images/stories/ncds/bcam_2022_banner.jpg)
+My choice is **_cancer_sample_** dataset; This data set contains a sample of quantitative features that were calculated from images of nuclei present in fine needle aspiration biopsies of breast masses from patients at the [University of Wisconsin Hospital](https://www.uwhealth.org/). The reason I've chosen this dataset is that I've had a personal experience with the loss of my grandmother to [Breast Cancer](https://cancer.ca/en/ways-to-give/breast-cancer-awareness-month) as well as October is _**National Breast Cancer Awareness Month**_ in `Canada`, and it's the current month, I am working on this dataset.![](https://www.planmed.com/globalassets/planmed/press/breastawarenessmonth.jpg)
 <!----------------------------------------------------------------------------->
 
 1.4 **(2 points)** Time for a  final decision! Going back to the beginning, it's important to have an *end goal* in mind. For example, if I had chosen the `titanic` dataset for my project, I might've wanted to explore the relationship between survival and other variables. Try to think of 1 research question that you would want to answer with your dataset. Note it down below.
 
 <!-------------------------- Start your work below ---------------------------->
-### My main question
-Association between diagnosis status (__malignant__ or __benign__) and other variables in this dataset.
+##### __My main question:__ Association between diagnosis status ( __malignant__ or __benign__) and other variables in this dataset.
 ![](https://cdn.jamanetwork.com/ama/content_public/journal/oncology/938547/m_cpg200003fa_1599155176.24556.png?Expires=1699431091&Signature=lvlOthvauKuHyi9rxkFa6YsotOIbU~rptKD7B3LGTDkuNlgUZFDgE3LzSm1GTDHoA37oqXSoCTKUEFgj9JO5UCsGLXUM6kybvE6RdggM7fpIf7J1lgc2tPVbTfGzuXx0AZqe22DiHp3vvMSCcdDDEC-cn8LAyT~-btMhgHK-nKCW5XTXoJJLhih-7SvElLfM7G-240SdxMBEKkMNfPjxZhy8bdZ5zp0Gh9pY0aLB9DLqc-rnBqouDGbDPI5OdFjKekxlLIBADiPfdmbmkgfaLif8o5MRoT8k~0w-z97kTtRXzVeGHdINrF8cDoJzjvexEJrLw1JPa0tuJDQv1MKg4w__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA)
 <!----------------------------------------------------------------------------->
 
@@ -174,7 +173,8 @@ If we rewind and go back to the learning objectives, you'll see that by the end 
 Make sure that you're using dplyr and ggplot2 rather than base R for this task. Outside of this project, you may find that you prefer using base R functions for certain tasks, and that's just fine! But part of this project is for you to practice the tools we learned in class, which is dplyr and ggplot2.
 
 1.  Plot the distribution of a numeric variable.
-####2.1.1 I would like to have the plot of Mean radius of nuclei present in sample image.
+
+__*Introduction:*__ I would like to have the plot of the mean radius of nuclei present in sample image to see the distribution of the radius in all specimens.
 ```{r}
 library(ggplot2)  # unloading the package for making plot.
 library(dplyr) # Unloading this package for data manipulation.
@@ -187,14 +187,18 @@ dataset <- cancer_sample  # Assigning the 'cancer_sample' dataset to simply 'dat
 ```{r}
 ggplot(dataset, aes(x= radius_mean)) +
   geom_histogram(binwidth = 1, fill = "blue", color = "black") +
-  labs(title = "Mean radius of nuclei present in sample image", x = "Mean radius", y = "Millimeter") +
+  labs(title = "Mean radius of nuclei present in sample image", x = "Mean radius", y = "Count") +
   theme_minimal()
 ```
 
 
-2.  Create a new variable based on other variables in your data (only if it makes sense)
-In this dataset, it appears that each patient has several images of nuclei present in fine needle aspiration biopsies of breast cancer. Consequently, for each variable, I observe both the __mean__ and the __standard error__. Therefore, I would like to generate a new type of variable that contains the sum of these two types. I refer to this variable as a **'real'** variable because it includes both the mean and the standard error.
-Also in diagnosis variable "B" stand for benign and "M" is the abbreviation of malignant, I would like to have the compele name in the new dataset, which I refer to this dataset as a __real_dataset__.
+2.  Create a new variable based on other variables in your data (only if it makes sense).
+
+__*Introduction:*__ In this dataset, it appears that each patient has multiple images of nuclei present in fine needle aspiration biopsies of breast cancer. Consequently, for each variable, I observe both the *_mean_* and the *_standard error_*. Therefore, I would like to generate a new type of variable that combines these two measurements. I refer to this variable as a *_real_variable_* because it incorporates both the mean and the standard error.
+Additionally, in the diagnosis variable, "B" stands for *benign*, and "M" is the abbreviation for *malignant*. I intend to include the full names in the new dataset.
+
+Therefore, I will henceforth refer to as the `real_dataset`.
+
 ```{r}
 real_dataset <- dataset %>%
   mutate(
@@ -215,7 +219,9 @@ real_dataset <- dataset %>%
 3.  Investigate how many missing values there are per variable. Can you find a way to plot this?
 
 4.  Explore the relationship between 2 variables in a plot.
-I would like to find relationship between _diagnosis_ and _real_radius-mean_ though jitter plot.
+
+__*Introduction:*__ The samples are divided into two groups based on the diagnosis: malignant and benign. Therefore, I would like to explore the differences between _diagnosis_ and _real_radius-mean_ through a jitter plot.
+
 ```{r}
 ggplot(real_dataset, aes(x = diagnosis, y = real_radius_mean)) +
   geom_jitter(width = 0.3, size = 3, alpha = 0.5, shape = 19, color = "red") +
@@ -226,7 +232,8 @@ ggplot(real_dataset, aes(x = diagnosis, y = real_radius_mean)) +
 5.  Filter observations in your data according to your own criteria. Think of what you'd like to explore - again, if this was the `titanic` dataset, I may want to narrow my search down to passengers born in a particular year...
 6.  Use a boxplot to look at the frequency of different observations within a single variable. You can do this for more than one variable if you wish!
 7.  Make a new tibble with a subset of your data, with variables and observations that you are interested in exploring.
-Create a new tibble containing data for worst malignant patients. 
+
+__*Introduction:*__ I have created a new tibble containing data for the worst malignant patients. Malignant status represents the most severe form of cancer; therefore, analyzing the variables containing the worst features (e.g., `radius_worst`, `texture_worst`, `perimeter_worst`, so on)in malignant samples is of particular interest to me. 
 ```{r}
 Malignant_worst_data <- real_dataset %>%
   select(
@@ -252,19 +259,20 @@ Malignant_worst_data <- real_dataset %>%
 
 <!-------------------------- Start your work below ---------------------------->
 
-#### Question 1. Plot the distribution of a numeric variable.
-I wanted to see the distribution of the mean of the radius in breast cancer patients.
+##### Question 1. Plot the distribution of a numeric variable.
+*Comment:* I would like to analyze the plot of the mean radius of nuclei present in the sample image to observe the distribution of radii across all specimens. This analysis is crucial as it allows us to gain a better understanding of the variations in nuclei sizes within the dataset. By examining the distribution, we can identify any trends or anomalies, which can provide valuable insights for further research or diagnostic purposes. Additionally, this information aids in characterizing the dataset and can potentially lead to important findings in the study of nuclei characteristics. Based on the plot, we can see most of the samples have `mean_radius` between 10 to 15.
 
 
-#### Question 2.Create a new variable based on other variables in your data (only if it makes sense)
-In this dataset, it appears that each patient has several images of nuclei present in fine needle aspiration biopsies of breast cancer. Consequently, for each variable, I observe both the __mean__ and the __standard error__. Therefore, I would like to generate a new type of variable that contains the sum of these two types. I refer to this variable as a **'real'** variable because it includes both the mean and the standard error.
-Also in diagnosis variable "B" stand for benign and "M" is the abbreviation of malignant, I would like to have the compele name in the new dataset, which I refer to this dataset as a __real_dataset__
+##### Question 2. Create a new variable based on other variables in your data (only if it makes sense).
+*Comment:* In this dataset, it appears that each patient has multiple images of nuclei present in fine needle aspiration biopsies of breast cancer. Consequently, for each variable, I observe both the *_mean_* and the *_standard error_*. Therefore, I would like to generate a new type of variable that combines these two measurements. I refer to this variable as a *_real_variable_* because it incorporates both the mean and the standard error.
+Additionally, in the diagnosis variable, "B" stands for *benign*, and "M" is the abbreviation for *malignant*. I intend to include the full names in the new dataset.
+Therefore, I will henceforth refer to as the `real_dataset`.
 
-#### Question 3. Explore the relationship between 2 variables in a plot.
-I would liked to find relationship between _diagnosis_ and _real_radius-mean_ though scatterplot to see can I see any association between the mean of the radius with cancer status(malignancy/benign). Thereofre, I made a jitter plot to see better this difference.
+##### Question 3. Explore the relationship between 2 variables in a plot.
+*Comment:* I would liked to find relationship between `_diagnosis_` and `_real_radius-mean_` though *jitter* to see can I see any association between the mean of the radius with cancer status(malignancy/benign). Therefore, I made a jitter plot to see better this difference so that *generally speaking* you can see malignant specimens have higher `_real_radius-mean_` than benign specimens.
 
-#### Question 7. Make a new tibble with a subset of your data, with variables and observations that you are interested in exploring.
-Based on a comprehensive review [paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5715522/) The worst condition in breast cancer typically corresponds to a higher malignancy status, indicating more aggressive and potentially life-threatening cancer. Therefore, I produced this subset for further analysis; I only selected malignant specimens from the diagnosis column and variables related to the worst conditions.
+##### Question 7. Make a new tibble with a subset of your data, with variables and observations that you are interested in exploring.
+*Comment:* Based on a comprehensive review [paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5715522/) The worst condition in breast cancer typically corresponds to a higher malignancy status, indicating more aggressive and potentially life-threatening cancer. Therefore, I produced this subset for further analysis; I only selected malignant specimens from the diagnosis column and variables related to the worst conditions.
 
 <!----------------------------------------------------------------------------->
 
@@ -273,11 +281,11 @@ Based on a comprehensive review [paper](https://www.ncbi.nlm.nih.gov/pmc/article
 **(4 points)** So far, you have chosen a dataset and gotten familiar with it through exploring the data. You have also brainstormed one research question that interested you (Task 1.4).  Now it's time to pick 4 research questions that you would like to explore in Milestone 2! Write the 4 questions and any additional comments below. 
 
 <!--- *****START HERE***** --->
-My questions are:
+##### My questions are:
 
->Question 1. Does the mean compactness of nuclei present in a sample image differ between malignant diagnosis samples and a benign diagnosis samples?
+>Question 1. Does the mean compactness of nuclei present in a sample image differ between malignant diagnosis samples and benign diagnosis samples?
 
->Question 2. Is there a difference in the mean perimeter of nuclei present in a sample image between malignant diagnosis samples and a benign diagnosis samples?
+>Question 2. Is there a difference in the mean perimeter of nuclei present in a sample image between malignant diagnosis samples and benign diagnosis samples?
 
 >Question 3. Do malignant samples have the largest perimeter of nuclei present in the sample image compared to the benign samples? 
 
