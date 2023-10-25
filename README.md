@@ -16,16 +16,16 @@ To gain valuable insights and visualize the data effectively, I utilized various
 Finally, I have formulated four questions for the next chapter of the project, Mini Data Analysis Project: Milestone 2.
 
 Milestones 2
-The Mini Data Analysis Project: Milestone 2 is about analyzing four selected questions in Milestone 1: for each question, a summarizing and a graphing have been done to address the answer of these questions, you can find the plots of these analyses in a folder called "mini-project-2_files/figure-gfm". Then, check the tidy of the dataset(cancer_sample) based on the first 8 variables. Finally subdatasets have been stored in a folder called Output.
+The Mini Data Analysis Project Milestone 2 is about analyzing four selected questions in Milestone 1: for each question, a summarizing and a graphing have been done to address the answer of these questions, you can find the plots of these analyses in a folder called "mini-project-2_files/figure-gfm". Then, check the tidy of the dataset(cancer_sample) based on the first 8 variables. Next, the fitting and modeling have been done for this milestone. Finally, subdatasets which already been generated have been stored in a folder called Output.
 
 ## Contents of the Repository
 * **README.md:** which provides a brief description of the repo.
-* **mini-project1.Rmd:** which is the mini-project1 on the Rmarkdown.
-* **mini-project1.md:** which is the markdown output of the mini-project1.
+* **mini-project1 and 2.Rmd:** which is the mini-project1 and 2 on the Rmarkdown.
+* **mini-project1 and 2.md:** which is the markdown output of the mini-project1 and 2.
 
 ## Software Required
 In order to reproduce the work done in this project, the following software is required:
 1. R
 2. R-Studio
 
-**Note**: In order to run mini-project1.Rmd you would need Rstudio as well as the tidyverse, datateachr, and ggplot2 packages installed.
+**Note**: In order to run mini-project1.Rmd you would need Rstudio as well as the tidyverse, datateachr, broom, here and ggplot2 packages installed.
